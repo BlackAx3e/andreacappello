@@ -1,0 +1,1115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+/* Navbar */
+.navbar {
+    padding: 20px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1); /* Trasparente */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.active {
+    background-color: #3A5A40;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Altezza delle immagini del logo */
+    margin-right: 15px; /* Spazio tra le due immagini del logo */
+}
+
+/* Menu Hamburger */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    width: 25px; /* Dimensioni relative */
+    height: 20px;
+}
+
+.menu-toggle .bar {
+    width: 25px; /* Dimensioni relative */
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle .bar:nth-child(1) {
+    top: 0;
+}
+
+.menu-toggle .bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Trasformazione in "X" */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    transform: rotate(-45deg);
+    top: 50%;
+}
+
+/* Links della navbar */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Transizione per max-height e opacità */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-size: 40px;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem; /* Dimensioni relative */
+    font-family: 'Tenor Sans', sans-serif;
+    transition: color 0.3s ease, transform 0.3s ease; /* Aggiungi transizione per l'ingrandimento */
+    display: inline-block; /* Assicurati che l'elemento sia trattato come un blocco inline per il transform */
+}
+
+/* Effetto hover sugli elementi del menu */
+.nav-links a:hover {
+    color: #f0f0f0; /* Colore al passaggio del mouse */
+    transform: scale(1.2); /* Ingrandisce l'elemento */
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('AU3A9247.jpg'); /* Immagine di sfondo */
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: 200;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-size: 48px;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 10px 0;
+}
+
+/* Media Queries per il Menu Hamburger */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background-color: #3A5A40; /* Sfondo del menu a tendina */
+    width: 100%; /* Larghezza completa per il menu */
+    max-height: 0; /* Inizialmente nascosto */
+    overflow: hidden;
+    opacity: 0;
+    z-index: 5;
+}
+
+.nav-links.active {
+    max-height: 500px; /* Altezza sufficiente per mostrare i link */
+    opacity: 1; /* Rendi visibile il menu */
+}
+
+.menu-toggle {
+    display: block; /* Mostra l'icona hamburger */
+}
+
+.navbar {
+    padding: 20px 5%; /* Padding aumentato su schermi piccoli */
+}
+
+section {
+    margin-bottom: 50px; /* Aggiunge uno spazio inferiore tra le sezioni */
+}
+
+/* Sezione About */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Colore di sfondo della sezione */
+    padding: 20px;
+    flex-direction: row; /* Disposizione orizzontale per schermi grandi */
+	height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: row; /* Disposizione orizzontale per schermi grandi */
+    align-items: center;
+    justify-content: space-between; /* Spazio tra il testo e l'immagine */
+    max-width: 1400px; /* Larghezza massima per il contenuto */
+    width: 100%; /* Assicura che il contenuto occupi tutta la larghezza disponibile */
+    gap: 10vh;
+}
+
+.text {
+    max-width: 50%; /* Limita la larghezza del testo */
+    text-align: left;
+	transition: transform 0.3s ease;
+}
+
+.text:hover {
+	 /* Specifica che solo la trasformazione deve essere animata */
+	transform: scale(1.09);
+}
+
+.text .logo-small {
+    height: 70px; /* Altezza del logo */
+    margin-bottom: 20px; /* Spazio sotto il logo */
+}
+
+.text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+.text p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.image {
+    width: 640px; /* Larghezza dell'immagine */
+    height: 640px; /* Altezza dell'immagine */
+    border-radius: 25px; /* Angoli arrotondati */
+    overflow: hidden; /* Nasconde le parti dell'immagine che escono dal contenitore */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra orizzontalmente */
+	transition: transform 0.3s ease;
+}
+
+.image:hover {
+	 /* Specifica che solo la trasformazione deve essere animata */
+	transform: scale(1.09);
+}
+
+.desktop-image {
+    width: 100%; /* Usa la larghezza completa del contenitore */
+    height: 100%; /* Usa l'altezza completa del contenitore */
+    object-fit: cover; /* Adatta l’immagine per coprire il contenitore */
+    object-position: center; /* Centra l’immagine all'interno del contenitore */
+}
+
+.mobile-image {
+    display: none; /* Nasconde l’immagine larga su schermi grandi */
+}
+
+/* Media Query per Schermi più Piccoli */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* Dispone il contenuto in colonna per schermi piccoli */
+        height: auto; /* Permette alla sezione di adattarsi al contenuto */
+    }
+
+    .content {
+        flex-direction: column; /* Dispone il testo sopra l'immagine su schermi piccoli */
+        align-items: center; /* Centra il contenuto */
+        text-align: center; /* Centra il testo */
+    }
+
+    .text {
+        max-width: 100%; /* Usa tutta la larghezza disponibile per il testo */
+    }
+
+    .image {
+        width: 100%; /* Usa la larghezza completa del contenitore */
+        height: auto; /* Mantiene le proporzioni dell'immagine */
+        margin-top: 20px; /* Spazio sopra l'immagine */
+    }
+
+    .desktop-image {
+        display: none; /* Nasconde l’immagine ritagliata su schermi piccoli */
+    }
+
+    .mobile-image {
+        display: block; /* Mostra l’immagine larga su schermi piccoli */
+        width: 100%; /* Usa la larghezza completa del contenitore */
+        height: auto; /* Mantiene le proporzioni dell'immagine */
+        object-fit: contain; /* Mantiene le proporzioni e adatta l’immagine */
+    }
+
+    /* Sezione Achievements */
+    .achievements-section {
+        padding: 20px 5%;
+    }
+
+    .achievements-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Aumenta lo spazio tra gli elementi */
+    }
+
+    .achievement {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .achievement img {
+        margin-bottom: 15px;
+    }
+
+    .achievement h3 {
+        font-size: 1.5rem;
+    }
+
+    .achievement p {
+        font-size: 1rem;
+    }
+
+    /* Sezione Photography Services */
+    .photography-services {
+        padding: 20px 5%;
+    }
+
+    .photography-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .photography-item {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .photography-item img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .photography-item h3 {
+        font-size: 1.125rem;
+    }
+
+    .photography-item p {
+        font-size: 0.875rem;
+    }
+}
+
+/* Sezione Achievements */
+.achievements-section {
+    padding: 50px 2%;
+    background-color: #fff; /* Colore di sfondo per la sezione */
+    text-align: center;
+	height: auto;
+}
+
+.achievements-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px; /* Spazio inferiore per la titolazione */
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: 200;
+	transition: transform 0.3s ease;
+}
+
+.achievements-title:hover {
+	transform: scale(1.1);
+}
+
+.achievements-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Spazio tra gli elementi */
+}
+
+.achievement {   
+    padding: 20px;
+    max-width: 430px; /* Larghezza massima per ciascuna sezione */
+    text-align: center;
+    margin-bottom: 30px; /* Spazio inferiore tra le achievements */
+	transition: transform 0.3s ease;
+}
+
+.achievement:hover {
+	transform: scale(1.1);
+}
+
+.achievement-logo {
+    height: 50px; /* Altezza del logo */
+    margin-bottom: 15px;
+}
+
+.achievement h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+.achievement p {
+    font-size: 1rem;
+    color: #333; /* Colore del testo */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Sezione Photography Services */
+.photography-services {
+    padding: 50px 2%;
+    background-color: #fff;
+    height: 100vh; /* Ogni sezione occupa l'intero schermo */
+	align-items: center; /* Centrato orizzontalmente */
+    justify-content: center; /* Centrato verticalmente */
+	position: relative;
+    text-align: center;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.photography-title {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+    margin-left: 0.3em;
+    text-align: left;
+    width: 100%; /* Utilizza tutta la larghezza del contenitore */
+	background: linear-gradient(to right, #A3B18A, #588157, #3A5A40, #344E41);
+    -webkit-background-clip: text; /* Supporto per browser basati su WebKit */
+    background-clip: text; /* Clippa il background al testo */
+    color: transparent; /* Rende il testo trasparente per far vedere il gradiente */
+}
+
+.photography-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permette al contenuto di andare su più righe */
+	justify-content: space-between;
+}
+
+.photography-item {
+    max-width: 430px;
+    padding: 15px;
+    text-align: left;
+	transition: transform 0.3s ease;
+}
+
+.photography-item:hover {
+	transform: scale(1.1);
+}
+
+.photography-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.photography-item h3 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.photography-item p {
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.spacing {
+    margin-top: 7em;
+}
+
+/* Sezione Photo Showcase */
+.photo-showcase {
+    padding: 50px 2%;
+    height: 100vh; /* Ogni sezione occupa l'intero schermo */
+	align-items: center; /* Centrato orizzontalmente */
+    justify-content: center; /* Centrato verticalmente */
+	position: relative;
+    text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.showcase-title {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+    margin-left: 0.3em;
+    margin-top: 3em;
+    width: 100%; /* Utilizza tutta la larghezza del contenitore */
+    background: linear-gradient(to right, #A3B18A, #588157, #3A5A40, #344E41);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	transition: transform 0.3s ease;
+}
+
+.showcase-title:hover {
+	transform: scale(1.1);
+}
+
+.showcase-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permette al contenuto di andare su più righe */
+	justify-content: space-between;
+}
+
+.photo-item {
+    max-width: 430px;
+    padding: 15px;
+    text-align: left;
+	transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+	transform: scale(1.1);
+}
+
+.photo-item img {
+    width: 322px;
+    height: 304px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.photo-item h3 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.photo-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.spacing {
+    margin-top: 7em;
+}
+
+/* Media Query per Schermi più Piccoli */
+@media (max-width: 768px) {
+    .photography-services, .photo-showcase {
+        height: auto; /* Permette alle sezioni di adattarsi al contenuto */
+    }
+
+    .photography-gallery, .showcase-gallery {
+        flex-direction: column; /* Disposizione in colonna per i contenuti */
+        align-items: center; /* Centra gli elementi orizzontalmente */
+    }
+}
+
+/* Sezione Art of Photography */
+.art-of-photography {
+    padding: 7em 2%; /* Riduci il padding superiore */
+    background-color: #fff;
+    min-height: 100vh; /* Usa min-height per adattarsi al contenuto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.art-title {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    margin-left: 0.3em;
+    margin-top: 3em;
+    width: 100%; /* Utilizza tutta la larghezza del contenitore */
+    background: linear-gradient(to right, #A3B18A, #588157, #3A5A40, #344E41);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	transition: transform 0.3s ease;	
+}
+
+.art-title:hover {
+	transform: scale(1.1);
+}
+
+.art-subtitle {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 2em; /* Aggiungi spazio sotto il sottotitolo */
+	transition: transform 0.3s ease;	
+}
+
+.art-subtitle:hover {
+	transform: scale(1.1);
+}
+
+.art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Aggiungi gap tra gli item */
+}
+
+.art-item {
+    max-width: 430px;
+    padding: 15px;
+    text-align: center;
+	transition: transform 0.3s ease;	
+}
+
+.art-item:hover {
+	transform: scale(1.1);
+}
+
+.art-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.art-item h3 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.art-item p {
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .art-of-photography {
+        padding: 20px 5%;
+        margin-top: 2em; /* Riduci lo spazio in cima per il mobile */
+    }
+
+    .art-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .art-item {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 20px; /* Spazio tra gli item */
+    }
+
+    .art-item img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .art-item h3 {
+        font-size: 1.125rem;
+    }
+
+    .art-item p {
+        font-size: 0.875rem;
+    }
+}
+
+/* Sezione Unique Benefits */
+.unique-benefits {
+    padding: 7em 2%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Cambiato height a min-height per evitare overflow */
+    margin: 0 auto;
+    width: 80%;
+    position: relative; /* Aggiungi position relative per evitare sovrapposizione */
+    z-index: 1; /* Eleva questa sezione sopra altre */
+}
+
+.benefits-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.benefits-text {
+    max-width: 50%;
+    text-align: left;
+}
+
+.benefits-title {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+    background: linear-gradient(to right, #A3B18A, #588157, #3A5A40, #344E41);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	transition: transform 0.3s ease;	
+}
+
+.benefits-subtitle {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin-bottom: 30px;
+    max-width: 90%;
+	transition: transform 0.3s ease;	
+}
+
+.benefits-title:hover, .benefits-subtitle:hover {
+	transform: scale(1.1);
+}
+
+.benefits-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    max-width: 200px;
+    text-align: left;
+	transition: transform 0.3s ease;
+}
+
+.card:hover {
+	transform: scale(1.1);	
+}
+
+.card-logo {
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.benefits-image {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.benefits-photo {
+    width: 652px;
+    height: 640px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Aggiunta di margini tra le sezioni */
+.art-of-photography {
+    margin-bottom: 4em; /* Aggiungi spazio sotto la penultima sezione */
+}
+
+.unique-benefits {
+    margin-top: 4em; /* Aggiungi spazio sopra la nuova sezione */
+}
+
+/* Media Query per Schermi Piccoli */
+@media (max-width: 768px) {
+    .unique-benefits {
+        padding: 20px 5%;
+        min-height: auto; /* Riduci l'altezza in visione mobile */
+    }
+
+    .benefits-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .benefits-text {
+        max-width: 100%;
+        margin-bottom: 20px; /* Aggiungi spazio sotto il testo */
+    }
+
+    .benefits-image {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .benefits-photo {
+        width: 100%;
+        height: auto;
+    }
+
+    .benefits-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 100%;
+        margin-bottom: 20px; /* Spazio tra le card */
+    }
+
+    /* Aggiungi margine tra sezioni in modalità mobile */
+    .art-of-photography {
+        margin-bottom: 2em;
+    }
+
+    .unique-benefits {
+        margin-top: 2em;
+    }
+}
+
+/* Sezione Recensioni e CTA */
+.reviews-cta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh; /* Assicura che la sezione copra almeno l'altezza dello schermo */
+}
+
+.review-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    text-align: center;
+    padding: 2em 2%;
+}
+
+.review-content {
+    max-width: 600px;
+}
+
+.stars {
+    font-size: 2rem;
+    color: #f5c518; /* Colore oro per le stelle */
+    margin-bottom: 1em;
+}
+
+.star {
+    margin: 0 2px;
+}
+
+.review-text {
+    font-size: 1.2rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cta-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Allinea tutto il contenuto a sinistra */
+    background: url('AU3A9243.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: left;
+    padding: 2em 2%;
+    position: relative;
+}
+
+.cta-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Opacità nera */
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0.5em;
+	margin-top: 1.5em;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 2em;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #000;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+	transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #000;
+    color: #fff;
+	transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .review-text, .cta-text {
+        font-size: 1rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: flex-start; /* Allinea i pulsanti a sinistra in modalità mobile */
+    }
+
+    .cta-button {
+        width: auto;
+        text-align: center;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    padding: 2em 5%;
+    text-align: center;
+	height: 40vh;
+}
+
+.footer-content {
+	margin-top: 5em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.footer-logo {
+	display: block;
+    margin: 0 auto;
+    max-width: 200px;
+	height: 50px;
+	margin-bottom: 0.8em;
+}
+
+.footer-name {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px; /* Adatta a seconda delle dimensioni dei tuoi loghi */
+}
+
+.footer-links {
+    margin: 1.5em 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-line {
+    border-top: 1px solid #000;
+    margin: 1em 0;
+    max-width: 100%; /* Spazio dai bordi */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+
+.footer-left {
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.footer-right a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-right {
+        margin-top: 1em;
+		margin-bottom: 1em;
+    }
+
+    .footer-right a {
+        display: block;
+        margin: 5px 0;
+    }
+	
+	.cta-content{
+		text-align: center;
+	}
+	
+	.cta-buttons {
+		align-items: center;
+	}
+}
+
+html {
+    scroll-behavior: smooth; /* Attiva lo scorrimento fluido per le ancore */
+}
+
+.sidebar {
+    position: fixed; /* Fissa la barra laterale alla pagina */
+    top: 50%; /* Posiziona verticalmente al centro della pagina */
+    right: 25px; /* Distanza dal bordo destro della pagina */
+    width: 40px; /* Larghezza della barra laterale */
+    border-radius: 10px; /* Angoli arrotondati */
+    display: flex;
+    flex-direction: column; /* Dispone gli elementi in verticale */
+    align-items: center;
+    padding: 10px;
+    transform: translateY(-50%); /* Centra verticalmente */
+    z-index: 1000; /* Assicura che la barra laterale sia sopra gli altri elementi */
+    list-style: none; /* Rimuove i punti elenco */
+}
+
+/* Stile per i collegamenti nella barra laterale */
+.sidebar-link {
+    display: block;
+    width: 30px; /* Larghezza dei collegamenti */
+    height: 30px; /* Altezza dei collegamenti */
+    background: rgb(92, 92, 92); /* Colore di sfondo */
+    border-radius: 50%; /* Rende i collegamenti rotondi */
+    margin: 5px 0; /* Spazio tra i collegamenti */
+    text-align: center;
+    line-height: 30px; /* Allinea il testo verticalmente */
+    color: #fff; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    opacity: 0.4;
+    position: relative; /* Necessario per posizionare il testo */
+    overflow: hidden; /* Nasconde il testo che esce dal bordo del pulsante */
+    transition: all 0.3s ease; /* Transizione fluida per l'effetto hover */
+}
+
+/* Stile per il testo che appare al passaggio del mouse */
+.sidebar-link::after {
+    content: attr(data-name); /* Mostra il testo come contenuto */
+    position: absolute;
+    left: 100%; /* Posiziona il testo all'esterno del cerchio */
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente il testo */
+    background: rgb(92, 92, 92); /* Sfondo dello stesso colore del cerchio */
+    color: #fff; /* Colore del testo */
+    padding: 5px 10px; /* Spazio interno del rettangolo */
+    border-radius: 5px; /* Angoli arrotondati per il rettangolo */
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    opacity: 0; /* Nasconde il testo */
+    transition: opacity 0.3s ease, width 0.3s ease; /* Transizione fluida per l'opacità e la larghezza */
+    width: 150px; /* Larghezza del rettangolo */
+    left: calc(100% + 10px); /* Spazio tra il cerchio e il rettangolo */
+    pointer-events: none; /* Evita che il testo interferisca con i clic */
+}
+
+/* Cambia il collegamento al passaggio del mouse */
+.sidebar-link:hover {
+    width: 100px; /* Allarga il collegamento */
+    height: 40px; /* Allarga l'altezza del collegamento */
+    border-radius: 5px; /* Rende gli angoli del rettangolo arrotondati */
+    opacity: 1; /* Aumenta l'opacità al passaggio del mouse */
+    background-color: rgb(92, 92, 92); /* Cambia lo sfondo al passaggio del mouse */
+}
+
+/* Mostra il testo al passaggio del mouse */
+.sidebar-link:hover::after {
+    opacity: 1; /* Mostra il testo */
+}
