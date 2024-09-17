@@ -109,7 +109,7 @@ body, html {
 
 /* Hero Section */
 .hero {
-    background-image: url('imgs/AU3A9247.jpg'); /* Immagine di sfondo */
+    background-image: url('AU3A9247.jpg'); /* Immagine di sfondo */
     height: 100vh;
     background-size: cover;
     background-position: center;
